@@ -8,7 +8,7 @@ Repositorio para el desarrollo, automatización y comercialización de plantilla
 |---|----------|---------------------------|--------|
 | 1 | Control de gastos personales | $6.99 | ✅ Disponible |
 | 2 | Presupuesto mensual | $6.99 | ✅ Disponible |
-| 3 | Control de deudas | $7.99 | ⏳ Pendiente |
+| 3 | Control de deudas | $7.99 | ✅ Disponible |
 | 4 | Control de inventario | $9.99 | ⏳ Pendiente |
 | 5 | Flujo de caja para negocios | $12.99 | ⏳ Pendiente |
 | 6 | Contabilidad básica para emprendedores | $14.99 | ⏳ Pendiente |
@@ -38,9 +38,12 @@ productos/
     Control-de-Gastos-Personales.xlsx
   02-presupuesto-mensual/
     Presupuesto-Mensual.xlsx
+  03-control-deudas/
+    Control-de-Deudas.xlsx
 scripts/
   build_control_gastos_personales.py   # genera el .xlsx del producto 1 con openpyxl
   build_presupuesto_mensual.py         # genera el .xlsx del producto 2 con openpyxl
+  build_control_deudas.py              # genera el .xlsx del producto 3 con openpyxl
 ```
 
 Todas las plantillas comparten la misma marca (paleta de colores, tipografía Arial, estructura
@@ -70,3 +73,17 @@ Hojas: Portada · Instrucciones · Configuración · Categorías · Presupuesto 
 - El Dashboard separa Ingresos de Gastos (en vez de un total mezclado) para que "% de gastos
   usado" y "Balance" tengan sentido financiero real.
 - Para regenerar el archivo: `python3 scripts/build_presupuesto_mensual.py`.
+
+## Producto 3: Control de deudas
+
+Hojas: Portada · Instrucciones · Configuración · Deudas · Pagos · Resumen · Dashboard.
+
+- "Deudas" es el catálogo de deudas (hasta 10): saldo inicial, tasa de interés anual y pago
+  mínimo. "Pagos" es la bitácora de pagos (fecha, deuda, monto, interés); el capital amortizado
+  se calcula solo y descuenta el saldo de cada deuda vía `SUMIFS`.
+- "Resumen" sugiere un orden de pago con dos estrategias clásicas, calculadas con `RANK`:
+  **bola de nieve** (paga primero la deuda con menor saldo) y **avalancha** (paga primero la de
+  mayor tasa de interés).
+- El Dashboard incluye la evolución mensual de la deuda total (saldo acumulado descontando los
+  pagos registrados mes a mes).
+- Para regenerar el archivo: `python3 scripts/build_control_deudas.py`.
