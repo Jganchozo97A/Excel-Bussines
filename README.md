@@ -12,7 +12,7 @@ Repositorio para el desarrollo, automatización y comercialización de plantilla
 | 4 | Control de inventario | $9.99 | ✅ Disponible |
 | 5 | Flujo de caja para negocios | $12.99 | ✅ Disponible |
 | 6 | Contabilidad básica para emprendedores | $14.99 | ✅ Disponible |
-| 7 | Control de ventas | $9.99 | ⏳ Pendiente |
+| 7 | Control de ventas | $9.99 | ✅ Disponible |
 | 8 | Nómina básica | $12.99 | ⏳ Pendiente |
 | 9 | Pack 5 plantillas | $24.99 | ⏳ Pendiente |
 | 10 | Pack 10 plantillas | $39.99 | ⏳ Pendiente |
@@ -46,6 +46,8 @@ productos/
     Flujo-de-Caja-para-Negocios.xlsx
   06-contabilidad-basica/
     Contabilidad-Basica-para-Emprendedores.xlsx
+  07-control-ventas/
+    Control-de-Ventas.xlsx
 scripts/
   build_control_gastos_personales.py   # genera el .xlsx del producto 1 con openpyxl
   build_presupuesto_mensual.py         # genera el .xlsx del producto 2 con openpyxl
@@ -53,6 +55,7 @@ scripts/
   build_control_inventario.py          # genera el .xlsx del producto 4 con openpyxl
   build_flujo_caja.py                  # genera el .xlsx del producto 5 con openpyxl
   build_contabilidad_basica.py         # genera el .xlsx del producto 6 con openpyxl
+  build_control_ventas.py              # genera el .xlsx del producto 7 con openpyxl
 ```
 
 Todas las plantillas comparten la misma marca (paleta de colores, tipografía Arial, estructura
@@ -139,3 +142,13 @@ Resultados · Dashboard.
 - Es contabilidad de ingresos y gastos (base para el Estado de Resultados), no partida doble ni
   balance general; la hoja de instrucciones lo aclara explícitamente.
 - Para regenerar el archivo: `python3 scripts/build_contabilidad_basica.py`.
+
+## Producto 7: Control de ventas
+
+Hojas: Portada · Instrucciones · Configuración · Catálogo · Clientes · Ventas · Resumen · Dashboard.
+
+- "Catálogo" (precios) y "Clientes" alimentan las listas desplegables de "Ventas"; el precio
+  unitario y el total de cada venta se completan solos vía `INDEX`/`MATCH`.
+- "Resumen" agrupa ventas por producto, por cliente y por mes, y calcula el ticket promedio, lo
+  pendiente de cobro (`Estado = Pendiente`) y el producto más vendido por monto.
+- Para regenerar el archivo: `python3 scripts/build_control_ventas.py`.
