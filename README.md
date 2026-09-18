@@ -11,7 +11,7 @@ Repositorio para el desarrollo, automatización y comercialización de plantilla
 | 3 | Control de deudas | $7.99 | ✅ Disponible |
 | 4 | Control de inventario | $9.99 | ✅ Disponible |
 | 5 | Flujo de caja para negocios | $12.99 | ✅ Disponible |
-| 6 | Contabilidad básica para emprendedores | $14.99 | ⏳ Pendiente |
+| 6 | Contabilidad básica para emprendedores | $14.99 | ✅ Disponible |
 | 7 | Control de ventas | $9.99 | ⏳ Pendiente |
 | 8 | Nómina básica | $12.99 | ⏳ Pendiente |
 | 9 | Pack 5 plantillas | $24.99 | ⏳ Pendiente |
@@ -44,12 +44,15 @@ productos/
     Control-de-Inventario.xlsx
   05-flujo-de-caja/
     Flujo-de-Caja-para-Negocios.xlsx
+  06-contabilidad-basica/
+    Contabilidad-Basica-para-Emprendedores.xlsx
 scripts/
   build_control_gastos_personales.py   # genera el .xlsx del producto 1 con openpyxl
   build_presupuesto_mensual.py         # genera el .xlsx del producto 2 con openpyxl
   build_control_deudas.py              # genera el .xlsx del producto 3 con openpyxl
   build_control_inventario.py          # genera el .xlsx del producto 4 con openpyxl
   build_flujo_caja.py                  # genera el .xlsx del producto 5 con openpyxl
+  build_contabilidad_basica.py         # genera el .xlsx del producto 6 con openpyxl
 ```
 
 Todas las plantillas comparten la misma marca (paleta de colores, tipografía Arial, estructura
@@ -121,3 +124,18 @@ Hojas: Portada · Instrucciones · Configuración · Categorías · Flujo de Caj
 - El Dashboard muestra la curva de saldo de caja proyectado durante el año, además de ingresos vs.
   egresos por mes y egresos por categoría.
 - Para regenerar el archivo: `python3 scripts/build_flujo_caja.py`.
+
+## Producto 6: Contabilidad básica para emprendedores
+
+Hojas: Portada · Instrucciones · Configuración · Plan de Cuentas · Transacciones · Estado de
+Resultados · Dashboard.
+
+- "Plan de Cuentas" clasifica cada cuenta contable en uno de 6 tipos (Ingreso, Costo de venta,
+  Gasto operativo, Gasto administrativo, Gasto financiero, Impuesto). "Transacciones" registra
+  cada movimiento por cuenta; el tipo se resuelve solo con `INDEX`/`MATCH`.
+- "Estado de Resultados" arma automáticamente el clásico estado de resultados en cascada (Ventas
+  − Costo de venta = Utilidad Bruta; − Gastos operativos/administrativos = Utilidad Operativa;
+  − Gastos financieros/Impuestos = Utilidad Neta), mes a mes y en total anual, con márgenes.
+- Es contabilidad de ingresos y gastos (base para el Estado de Resultados), no partida doble ni
+  balance general; la hoja de instrucciones lo aclara explícitamente.
+- Para regenerar el archivo: `python3 scripts/build_contabilidad_basica.py`.
