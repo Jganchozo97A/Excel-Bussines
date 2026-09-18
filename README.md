@@ -9,7 +9,7 @@ Repositorio para el desarrollo, automatización y comercialización de plantilla
 | 1 | Control de gastos personales | $6.99 | ✅ Disponible |
 | 2 | Presupuesto mensual | $6.99 | ✅ Disponible |
 | 3 | Control de deudas | $7.99 | ✅ Disponible |
-| 4 | Control de inventario | $9.99 | ⏳ Pendiente |
+| 4 | Control de inventario | $9.99 | ✅ Disponible |
 | 5 | Flujo de caja para negocios | $12.99 | ⏳ Pendiente |
 | 6 | Contabilidad básica para emprendedores | $14.99 | ⏳ Pendiente |
 | 7 | Control de ventas | $9.99 | ⏳ Pendiente |
@@ -40,10 +40,13 @@ productos/
     Presupuesto-Mensual.xlsx
   03-control-deudas/
     Control-de-Deudas.xlsx
+  04-control-inventario/
+    Control-de-Inventario.xlsx
 scripts/
   build_control_gastos_personales.py   # genera el .xlsx del producto 1 con openpyxl
   build_presupuesto_mensual.py         # genera el .xlsx del producto 2 con openpyxl
   build_control_deudas.py              # genera el .xlsx del producto 3 con openpyxl
+  build_control_inventario.py          # genera el .xlsx del producto 4 con openpyxl
 ```
 
 Todas las plantillas comparten la misma marca (paleta de colores, tipografía Arial, estructura
@@ -87,3 +90,18 @@ Hojas: Portada · Instrucciones · Configuración · Deudas · Pagos · Resumen 
 - El Dashboard incluye la evolución mensual de la deuda total (saldo acumulado descontando los
   pagos registrados mes a mes).
 - Para regenerar el archivo: `python3 scripts/build_control_deudas.py`.
+
+## Producto 4: Control de inventario
+
+Hojas: Portada · Instrucciones · Configuración · Categorías · Productos · Movimientos · Resumen · Dashboard.
+
+- "Productos" es el catálogo (hasta 12 productos: código, categoría, unidad, stock mínimo, costo,
+  precio de venta, stock inicial). "Movimientos" registra entradas/salidas por código de producto.
+- "Resumen" calcula el stock actual (`stock inicial + entradas - salidas`), el valor de inventario
+  y marca "Bajo stock" cuando el stock actual cae por debajo del mínimo.
+- El Dashboard alerta cuántos productos están bajo stock mínimo y grafica el valor de inventario
+  por categoría y por producto.
+- Nota de diseño: el número de filas de Productos/Deudas se mantiene moderado (10-12) a propósito,
+  porque los gráficos de pastel/barras en Excel no ocultan automáticamente las categorías vacías;
+  con rangos muy largos la leyenda se llena de entradas en blanco.
+- Para regenerar el archivo: `python3 scripts/build_control_inventario.py`.
