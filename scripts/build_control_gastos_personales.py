@@ -52,7 +52,6 @@ align_center = Alignment(horizontal="center", vertical="center")
 align_left = Alignment(horizontal="left", vertical="center")
 align_wrap = Alignment(horizontal="left", vertical="top", wrap_text=True)
 
-PROTECT_PASSWORD = "plantilla2026"
 
 wb = Workbook()
 wb.remove(wb.active)
@@ -72,7 +71,6 @@ def set_col_widths(ws, widths):
 
 def lock_all(ws):
     ws.protection.sheet = True
-    ws.protection.password = PROTECT_PASSWORD
     ws.protection.formatCells = False
     ws.protection.formatColumns = False
     ws.protection.formatRows = False
@@ -185,7 +183,7 @@ steps = [
      "Transacciones, Resumen y Dashboard se recalculan automáticamente al nuevo tipo de cambio."),
     ("7. Celdas protegidas",
      "Las hojas están protegidas para que no borres fórmulas por accidente. Solo puedes escribir en las celdas "
-     "resaltadas en color crema / texto azul. Si necesitas desproteger una hoja, la contraseña es: plantilla2026."),
+     "resaltadas en color crema / texto azul. Si necesitas editar otra celda, ve a Revisar → Desproteger hoja (no pide contraseña)."),
     ("8. Agregar más filas",
      "Si necesitas más de 200 movimientos, selecciona una fila dentro de la tabla de 'Transacciones', copia el formato "
      "hacia abajo y continúa registrando: las fórmulas de conversión ya están preparadas en ese rango."),

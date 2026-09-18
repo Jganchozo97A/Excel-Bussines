@@ -46,7 +46,6 @@ align_center = Alignment(horizontal="center", vertical="center")
 align_left = Alignment(horizontal="left", vertical="center")
 align_wrap = Alignment(horizontal="left", vertical="top", wrap_text=True)
 
-PROTECT_PASSWORD = "plantilla2026"
 
 wb = Workbook()
 wb.remove(wb.active)
@@ -69,7 +68,6 @@ def set_col_widths(ws, widths):
 
 def lock_all(ws):
     ws.protection.sheet = True
-    ws.protection.password = PROTECT_PASSWORD
     ws.protection.formatCells = False
     ws.protection.formatColumns = False
     ws.protection.formatRows = False
@@ -292,7 +290,7 @@ build_instrucciones([
      "automáticamente."),
     ("7. Celdas protegidas",
      "Las hojas están protegidas para que no borres fórmulas por accidente. Solo puedes escribir en "
-     "las celdas resaltadas en color crema / texto azul. Contraseña de desprotección: plantilla2026."),
+     "las celdas resaltadas en color crema / texto azul. Si necesitas editar otra celda, ve a Revisar → Desproteger hoja (no pide contraseña)."),
     ("Nota",
      "Esta plantilla es contabilidad básica de ingresos y gastos (Estado de Resultados), pensada "
      "para emprendedores y pequeños negocios. No reemplaza la contabilidad formal por partida "

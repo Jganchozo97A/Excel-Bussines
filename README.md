@@ -67,7 +67,15 @@ scripts/
 
 Todas las plantillas comparten la misma marca (paleta de colores, tipografía Arial, estructura
 de hojas Portada/Instrucciones/Configuración) y el mismo mecanismo de selector de moneda
-(Local/USD) y de contraseña de desprotección: `plantilla2026`.
+(Local/USD).
+
+**Protección de hojas:** cada hoja está protegida por defecto (para evitar borrar fórmulas por
+accidente), pero **sin contraseña** — en Excel: Revisar → Desproteger hoja, sin pedir nada. Antes
+las hojas llevaban la contraseña `plantilla2026`; se quitó porque en Excel de escritorio (Windows)
+algunos usuarios reportaron que el diálogo de "celda protegida" aparecía incluso en celdas
+marcadas como editables en el archivo (verificado a nivel de XML: la celda sí estaba
+`locked="false"`), y pedirles una contraseña para desbloquear su propio archivo era una fricción
+innecesaria. Si vuelve a pasar, "Desproteger hoja" ahora resuelve el problema con un clic.
 
 ## Producto 1: Control de gastos personales
 
