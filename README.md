@@ -10,7 +10,7 @@ Repositorio para el desarrollo, automatización y comercialización de plantilla
 | 2 | Presupuesto mensual | $6.99 | ✅ Disponible |
 | 3 | Control de deudas | $7.99 | ✅ Disponible |
 | 4 | Control de inventario | $9.99 | ✅ Disponible |
-| 5 | Flujo de caja para negocios | $12.99 | ⏳ Pendiente |
+| 5 | Flujo de caja para negocios | $12.99 | ✅ Disponible |
 | 6 | Contabilidad básica para emprendedores | $14.99 | ⏳ Pendiente |
 | 7 | Control de ventas | $9.99 | ⏳ Pendiente |
 | 8 | Nómina básica | $12.99 | ⏳ Pendiente |
@@ -42,11 +42,14 @@ productos/
     Control-de-Deudas.xlsx
   04-control-inventario/
     Control-de-Inventario.xlsx
+  05-flujo-de-caja/
+    Flujo-de-Caja-para-Negocios.xlsx
 scripts/
   build_control_gastos_personales.py   # genera el .xlsx del producto 1 con openpyxl
   build_presupuesto_mensual.py         # genera el .xlsx del producto 2 con openpyxl
   build_control_deudas.py              # genera el .xlsx del producto 3 con openpyxl
   build_control_inventario.py          # genera el .xlsx del producto 4 con openpyxl
+  build_flujo_caja.py                  # genera el .xlsx del producto 5 con openpyxl
 ```
 
 Todas las plantillas comparten la misma marca (paleta de colores, tipografía Arial, estructura
@@ -105,3 +108,16 @@ Hojas: Portada · Instrucciones · Configuración · Categorías · Productos ·
   porque los gráficos de pastel/barras en Excel no ocultan automáticamente las categorías vacías;
   con rangos muy largos la leyenda se llena de entradas en blanco.
 - Para regenerar el archivo: `python3 scripts/build_control_inventario.py`.
+
+## Producto 5: Flujo de caja para negocios
+
+Hojas: Portada · Instrucciones · Configuración · Categorías · Flujo de Caja · Resumen · Dashboard.
+
+- "Flujo de Caja" es una grilla categoría × mes (como en el producto 2) pero de movimientos reales
+  de efectivo del negocio (sin comparación presupuesto/real).
+- "Resumen" arrastra el saldo de caja mes a mes: `Saldo final(mes) = Saldo inicial(mes) + Flujo
+  neto(mes)`, y `Saldo inicial(mes N) = Saldo final(mes N-1)`, partiendo del saldo de caja inicial
+  configurado.
+- El Dashboard muestra la curva de saldo de caja proyectado durante el año, además de ingresos vs.
+  egresos por mes y egresos por categoría.
+- Para regenerar el archivo: `python3 scripts/build_flujo_caja.py`.
