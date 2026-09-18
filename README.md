@@ -36,4 +36,19 @@ Cada plantilla incluye:
 productos/
   01-control-gastos-personales/
     Control-de-Gastos-Personales.xlsx
+scripts/
+  build_control_gastos_personales.py   # genera el .xlsx del producto 1 con openpyxl
 ```
+
+## Producto 1: Control de gastos personales
+
+Hojas: Portada · Instrucciones · Configuración · Categorías · Transacciones · Resumen · Dashboard.
+
+- El selector de moneda vive en la hoja **Configuración** (símbolo local, tipo de cambio y
+  "Moneda de visualización": Local/USD). Todas las hojas leen ese factor de conversión, así
+  que cambiar la moneda recalcula Transacciones, Resumen y Dashboard sin duplicar hojas.
+- El "Resumen" usa fórmulas `SUMIFS` (por categoría y por mes) en lugar de una tabla dinámica
+  nativa de Excel, para evitar la fragilidad de generar tablas dinámicas por XML: el resultado
+  se comporta igual (se actualiza solo) pero es mucho más robusto.
+- Contraseña de desprotección de hojas: `plantilla2026` (documentada también dentro del archivo).
+- Para regenerar el archivo tras editar el script: `python3 scripts/build_control_gastos_personales.py`.
