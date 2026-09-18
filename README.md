@@ -14,8 +14,8 @@ Repositorio para el desarrollo, automatización y comercialización de plantilla
 | 6 | Contabilidad básica para emprendedores | $14.99 | ✅ Disponible |
 | 7 | Control de ventas | $9.99 | ✅ Disponible |
 | 8 | Nómina básica | $12.99 | ✅ Disponible |
-| 9 | Pack 5 plantillas | $24.99 | ⏳ Pendiente |
-| 10 | Pack 10 plantillas | $39.99 | ⏳ Pendiente |
+| 9 | Pack 5 plantillas | $24.99 | ✅ Disponible |
+| 10 | Pack completo de plantillas (comercializado como "Pack 10") | $39.99 | ✅ Disponible (8 plantillas hoy) |
 
 Cada plantilla incluye:
 
@@ -50,6 +50,10 @@ productos/
     Control-de-Ventas.xlsx
   08-nomina-basica/
     Nomina-Basica.xlsx
+  09-pack-5-plantillas/
+    Pack-5-Plantillas.zip
+  10-pack-completo/
+    Pack-Completo-Plantillas.zip
 scripts/
   build_control_gastos_personales.py   # genera el .xlsx del producto 1 con openpyxl
   build_presupuesto_mensual.py         # genera el .xlsx del producto 2 con openpyxl
@@ -168,3 +172,17 @@ Hojas: Portada · Instrucciones · Configuración · Empleados · Bonificaciones
 - "Resumen" calcula, para el mes elegido (selector en Configuración, igual que en el producto 2),
   el total de ingresos, los descuentos y el sueldo neto de cada colaborador.
 - Para regenerar el archivo: `python3 scripts/build_nomina_basica.py`.
+
+## Producto 9: Pack 5 plantillas
+
+`productos/09-pack-5-plantillas/Pack-5-Plantillas.zip` — bundle de 5 plantillas con descuento
+frente a comprarlas por separado: Control de Gastos Personales, Presupuesto Mensual, Control de
+Deudas, Flujo de Caja para Negocios y Control de Ventas. Incluye un `LEEME.md` con el índice del
+pack.
+
+## Producto 10: Pack completo de plantillas ("Pack 10")
+
+`productos/10-pack-completo/Pack-Completo-Plantillas.zip` — bundle con las 8 plantillas de la
+línea. Se comercializa como "Pack 10" (el nombre original de la línea de productos), aunque hoy
+incluye 8: el `LEEME.md` del pack lo indica explícitamente y aclara que las próximas plantillas
+que se agreguen a la línea se sumarán a este pack sin costo adicional para quienes ya lo compraron.
