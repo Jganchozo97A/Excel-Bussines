@@ -13,7 +13,7 @@ Repositorio para el desarrollo, automatización y comercialización de plantilla
 | 5 | Flujo de caja para negocios | $12.99 | ✅ Disponible |
 | 6 | Contabilidad básica para emprendedores | $14.99 | ✅ Disponible |
 | 7 | Control de ventas | $9.99 | ✅ Disponible |
-| 8 | Nómina básica | $12.99 | ⏳ Pendiente |
+| 8 | Nómina básica | $12.99 | ✅ Disponible |
 | 9 | Pack 5 plantillas | $24.99 | ⏳ Pendiente |
 | 10 | Pack 10 plantillas | $39.99 | ⏳ Pendiente |
 
@@ -48,6 +48,8 @@ productos/
     Contabilidad-Basica-para-Emprendedores.xlsx
   07-control-ventas/
     Control-de-Ventas.xlsx
+  08-nomina-basica/
+    Nomina-Basica.xlsx
 scripts/
   build_control_gastos_personales.py   # genera el .xlsx del producto 1 con openpyxl
   build_presupuesto_mensual.py         # genera el .xlsx del producto 2 con openpyxl
@@ -56,6 +58,7 @@ scripts/
   build_flujo_caja.py                  # genera el .xlsx del producto 5 con openpyxl
   build_contabilidad_basica.py         # genera el .xlsx del producto 6 con openpyxl
   build_control_ventas.py              # genera el .xlsx del producto 7 con openpyxl
+  build_nomina_basica.py               # genera el .xlsx del producto 8 con openpyxl
 ```
 
 Todas las plantillas comparten la misma marca (paleta de colores, tipografía Arial, estructura
@@ -152,3 +155,16 @@ Hojas: Portada · Instrucciones · Configuración · Catálogo · Clientes · Ve
 - "Resumen" agrupa ventas por producto, por cliente y por mes, y calcula el ticket promedio, lo
   pendiente de cobro (`Estado = Pendiente`) y el producto más vendido por monto.
 - Para regenerar el archivo: `python3 scripts/build_control_ventas.py`.
+
+## Producto 8: Nómina básica
+
+Hojas: Portada · Instrucciones · Configuración · Empleados · Bonificaciones · Resumen · Dashboard.
+
+- "Empleados" es la ficha de personal (hasta 10 colaboradores, con sueldo base). "Bonificaciones"
+  es una grilla colaborador × mes para bonos, comisiones u horas extra.
+- Las tasas de descuento (seguro social e impuesto/retención) son porcentajes simples editables en
+  Configuración — una simplificación deliberada para que sirva en cualquier país; la hoja de
+  instrucciones aclara que no reemplaza el cálculo legal de planillas.
+- "Resumen" calcula, para el mes elegido (selector en Configuración, igual que en el producto 2),
+  el total de ingresos, los descuentos y el sueldo neto de cada colaborador.
+- Para regenerar el archivo: `python3 scripts/build_nomina_basica.py`.
